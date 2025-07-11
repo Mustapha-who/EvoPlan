@@ -36,7 +36,3 @@ build/
 
 ### Mac OS ###
 .DS_Store
-
-
-Hexatech-main/EvoPlan/src/main/resources/credentials.json
-Hexatech-main/EvoPlan/tokens/StoredCredential
