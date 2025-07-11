@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="700.0" prefWidth="1024.0" style="-fx-background-color: #f5f5f5;"
+            xmlns="http://javafx.com/javafx/23.0.1"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="evoplan.controllers.Partner.DisplayPartnerController">
+    <children>
+        <!-- Main Container -->
+        <VBox spacing="20" AnchorPane.topAnchor="0.0" AnchorPane.leftAnchor="0.0"
+              AnchorPane.rightAnchor="0.0" AnchorPane.bottomAnchor="0.0">
+
+            <!-- Header Section with Gradient -->
+            <StackPane style="-fx-background-color: linear-gradient(to right, #3f51b5, #5c6bc0);">
+                <padding>
+                    <Insets top="30" bottom="30" left="40" right="40"/>
+                </padding>
+
+                <HBox alignment="CENTER_LEFT" spacing="20">
+                    <!-- Title Section -->
+                    <VBox spacing="5">
+                        <Label text="List of Partners"
+                               style="-fx-font-size: 32px; -fx-font-weight: bold; -fx-font-family: 'Segoe UI'; -fx-text-fill: white;">
+                            <effect>
+                                <DropShadow color="rgba(0,0,0,0.3)" radius="5"/>
+                            </effect>
+                        </Label>
+                    </VBox>
+
+                    <!-- Action Buttons -->
+                    <Region HBox.hgrow="ALWAYS"/>
+                    <HBox spacing="15" alignment="CENTER_RIGHT">
+                        <Button mnemonicParsing="false" onAction="#switchToAddPartner"
+                                style="-fx-background-color: #4CAF50; -fx-text-fill: white;
+                                       -fx-font-size: 14px; -fx-font-weight: bold;
+                                       -fx-background-radius: 20; -fx-padding: 12 25;
+                                       -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 10, 0, 0, 2);"
+                                text="+ Add Partner"/>
+                        <Button mnemonicParsing="false" onAction="#switchToDisplayPartnership"
+                                style="-fx-background-color: rgba(255,255,255,0.2); -fx-text-fill: white;
+                                       -fx-font-size: 14px; -fx-background-radius: 20;
+                                       -fx-padding: 12 25;"
+                                text="View Partnerships"/>
+                        <Button mnemonicParsing="false" onAction="#switchToAddPartnership"
+                                style="-fx-background-color: rgba(255,255,255,0.2); -fx-text-fill: white;
+                                       -fx-font-size: 14px; -fx-background-radius: 20;
+                                       -fx-padding: 12 25;"
+                                text="Create Partnership"/>
+                        <Button mnemonicParsing="false" onAction="#deleteSelectedPartner"
+                                style="-fx-background-color: #f44336; -fx-text-fill: white;
+                                       -fx-font-size: 14px; -fx-font-weight: bold;
+                                       -fx-background-radius: 20; -fx-padding: 12 25;"
+                                text="Delete Partner"/>
+                    </HBox>
+
+                </HBox>
+            </StackPane>
+
+            <!-- Search and Filter Section -->
+            <HBox spacing="15" style="-fx-background-color: white; -fx-padding: 20;">
+                <padding>
+                    <Insets left="40" right="40"/>
+                </padding>
+                <TextField fx:id="searchField" promptText="Search partners..." onKeyReleased="#handleSearch" />
+                <ComboBox fx:id="filterComboBox" promptText="Filter by type" onAction="#handleFilter" style="-fx-background-radius: 20; -fx-padding: 5;"/>
+                <ComboBox fx:id="sortComboBox" promptText="Sort by" onAction="#handleSort" style="-fx-background-radius: 20; -fx-padding: 5;"/>
+            </HBox>
+
+            <!-- Cards Section -->
+            <ScrollPane fitToWidth="true" style="-fx-background-color: transparent; -fx-padding: 0 20;">
+                <content>
+                    <FlowPane fx:id="cardsContainer" hgap="20" vgap="20" style="-fx-padding: 20;">
+                        <padding>
+                            <Insets left="20" right="20"/>
+                        </padding>
+                    </FlowPane>
+                </content>
+            </ScrollPane>
+        </VBox>
+    </children>
+</AnchorPane>

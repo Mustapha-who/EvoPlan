@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="evoplan.controllers.Ressource.ModifierRessourceController"
+      spacing="20" alignment="CENTER" style="-fx-background-color: #ffffff; -fx-padding: 25;">
+
+    <!-- Titre de l'application -->
+    <Label text="Modifier une ressource" style="-fx-text-fill: #4166d5; -fx-font-size: 28px; -fx-font-weight: bold;" />
+
+    <!-- Liste des ressources pour sélectionner la ressource à modifier -->
+    <ListView fx:id="ressourceListView"
+              style="-fx-background-color: #f9f9f9; -fx-border-color: #4166d5; -fx-border-width: 1px; -fx-border-radius: 5px;"
+              prefWidth="400" prefHeight="200" onMouseClicked="#handleModifier" />
+
+    <!-- Formulaire de modification -->
+    <GridPane hgap="10" vgap="10" style="-fx-padding: 15;">
+        <Label text="Nom :" GridPane.columnIndex="0" GridPane.rowIndex="0" style="-fx-text-fill: #4166d5; -fx-font-weight: bold;" />
+        <TextField fx:id="nomField" GridPane.columnIndex="1" GridPane.rowIndex="0"
+                   style="-fx-background-color: #ffffff; -fx-border-color: #4166d5; -fx-border-radius: 5px;"
+                   promptText="Entrez le nom de la ressource" prefWidth="250" />
+
+        <Label text="Type :" GridPane.columnIndex="0" GridPane.rowIndex="1" style="-fx-text-fill: #4166d5; -fx-font-weight: bold;" />
+        <ComboBox fx:id="typeField" GridPane.columnIndex="1" GridPane.rowIndex="1"
+                  style="-fx-background-color: #ffffff; -fx-border-color: #4166d5; -fx-border-radius: 5px;"
+                  promptText="Sélectionnez un type" prefWidth="250" />
+
+        <Label text="Disponible :" GridPane.columnIndex="0" GridPane.rowIndex="2" style="-fx-text-fill: #4166d5; -fx-font-weight: bold;" />
+        <CheckBox fx:id="availabilityField" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+    </GridPane>
+
+    <!-- Boutons -->
+    <HBox spacing="12" alignment="CENTER">
+        <Button text="Sauvegarder" onAction="#handleModifier"
+                style="-fx-background-color: #4166d5; -fx-text-fill: white; -fx-font-weight: bold; -fx-border-radius: 5px;"
+                prefWidth="120" />
+        <Button text="Annuler" onAction="#handleAnnuler"
+                style="-fx-background-color: #ff4d4d; -fx-text-fill: white; -fx-font-weight: bold; -fx-border-radius: 5px;"
+                prefWidth="120" />
+    </HBox>
+
+    <!-- Pied de page -->
+    <Label text="Powered by HexaTech" style="-fx-text-fill: #4166d5; -fx-font-size: 12px; -fx-padding: 15;" />
+
+</VBox>

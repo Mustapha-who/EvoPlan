@@ -1,0 +1,55 @@
+
+.table-view {
+    -fx-background-color: white; /* Background color */
+    -fx-border-color: #3b6cc3; /* Medical blue border */
+    -fx-border-width: 2px;
+    -fx-background-radius: 8px;
+    -fx-border-radius: 8px;
+}
+
+
+.table-view .column-header-background {
+    -fx-background-color: #3b6cc3; /* Medical blue header */
+    -fx-background-radius: 8px 8px 0px 0px; /* Round top corners */
+    -fx-border-radius: 8px 8px 0px 0px;
+}
+
+.table-view .column-header {
+    -fx-background-color: transparent; /* Transparent inside */
+    -fx-text-fill: white; /* White text */
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+}
+
+.table-row-cell {
+    -fx-border-color: #dddddd; /* Light gray row borders */
+    -fx-border-width: 0px 0px 1px 0px; /* Bottom border */
+    -fx-padding: 5px;
+}
+
+
+.table-row-cell:odd {
+    -fx-background-color: #f9f9f9; /* Soft gray */
+}
+.table-row-cell:even {
+    -fx-background-color: white; /* Pure white */
+}
+
+
+.table-row-cell:hover {
+    -fx-background-color: #e6f0ff; /* Light blue hover */
+}
+
+
+.button {
+    -fx-background-color: #3b6cc3;
+    -fx-text-fill: white;
+    -fx-font-size: 12px;
+    -fx-padding: 5px 10px;
+    -fx-background-radius: 4px;
+    -fx-border-radius: 4px;
+}
+
+.button:hover {
+    -fx-background-color: #2a4f96; /* Darker blue on hover */
+}

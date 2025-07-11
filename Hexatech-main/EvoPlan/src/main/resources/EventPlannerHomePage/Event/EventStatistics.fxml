@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.LineChart?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.chart.PieChart?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane stylesheets="/styles/stats.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="evoplan.controllers.StatsController">
+
+    <top>
+        <AnchorPane styleClass="header">
+            <children>
+                <Label styleClass="title-label" text="Statistiques de l'Événement" />
+                <HBox spacing="15.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="15.0">
+                    <Label styleClass="filter-label" text="Filtrer par :" />
+                    <ComboBox fx:id="periodComboBox" prefWidth="150.0" styleClass="period-combo" />
+                    <Button fx:id="refreshButton" styleClass="refresh-button" text="Actualiser" />
+               <Button fx:id="exportExcelButton" mnemonicParsing="false" text="Exporter en Excel" />
+                </HBox>
+            </children>
+            <padding>
+                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+            </padding>
+        </AnchorPane>
+    </top>
+
+    <center>
+        <ScrollPane fitToHeight="true" fitToWidth="true">
+            <content>
+                <GridPane hgap="15.0" styleClass="content-grid" vgap="15.0">
+                    <padding>
+                        <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
+                    </padding>
+                    <children>
+                        <!-- Première rangée -->
+                        <VBox styleClass="metric-box" GridPane.columnIndex="0" GridPane.rowIndex="0">
+                            <Label styleClass="section-title" text="Vue d'ensemble" />
+                            <HBox spacing="20.0" styleClass="metrics-container">
+                                <VBox styleClass="metric-item">
+                                    <Label fx:id="totalVisitsLabel" styleClass="metric-value" text="Total des visites : 0" />
+                                </VBox>
+                                <VBox styleClass="metric-item">
+                                    <Label fx:id="totalReservationsLabel" styleClass="metric-value" text="Total des réservations : 0" />
+                                </VBox>
+                                <VBox styleClass="metric-item">
+                                    <Label fx:id="conversionRateLabel" styleClass="metric-value" text="Taux de conversion : 0%" />
+                                </VBox>
+                            </HBox>
+                        </VBox>
+
+                        <!-- Deuxième rangée -->
+                        <VBox styleClass="chart-container" GridPane.columnIndex="0" GridPane.rowIndex="1">
+                            <Label styleClass="section-title" text="Évolution des Visites et Réservations" />
+                            <LineChart fx:id="lineChart" legendVisible="true" styleClass="line-chart">
+                                <xAxis>
+                                    <CategoryAxis label="Date" styleClass="axis" fx:id="xAxis" />
+                                </xAxis>
+                                <yAxis>
+                                    <NumberAxis fx:id="yAxis" label="Nombre" styleClass="axis" />
+                                </yAxis>
+                            </LineChart>
+                        </VBox>
+
+                        <!-- Troisième rangée -->
+                        <HBox spacing="15.0" GridPane.columnIndex="0" GridPane.rowIndex="2">
+                            <VBox styleClass="chart-container" HBox.hgrow="ALWAYS">
+                                <Label styleClass="section-title" text="Taux de Conversion" />
+                                <PieChart fx:id="pieChart" styleClass="pie-chart" />
+                            </VBox>
+                            <VBox styleClass="legend-container">
+                                <Label styleClass="section-title" text="Légende" />
+                                <VBox spacing="10.0" styleClass="legend-items">
+                                    <HBox spacing="10.0" styleClass="legend-item">
+                                        <Label style="-fx-background-color: #4CAF50;" styleClass="legend-color" />
+                                        <Label text="Réservations" />
+                                    </HBox>
+                                    <HBox spacing="10.0" styleClass="legend-item">
+                                        <Label style="-fx-background-color: #E0E0E0;" styleClass="legend-color" />
+                                        <Label text="Visites sans réservation" />
+                                    </HBox>
+                                </VBox>
+                            </VBox>
+                        </HBox>
+                    </children>
+                    <columnConstraints>
+                        <javafx.scene.layout.ColumnConstraints percentWidth="100.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                        <javafx.scene.layout.RowConstraints percentHeight="15.0" />
+                        <javafx.scene.layout.RowConstraints percentHeight="42.5" />
+                        <javafx.scene.layout.RowConstraints percentHeight="42.5" />
+                    </rowConstraints>
+                </GridPane>
+            </content>
+        </ScrollPane>
+    </center>
+</BorderPane>

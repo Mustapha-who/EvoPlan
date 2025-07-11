@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import javafx.collections.FXCollections?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane prefHeight="650.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="evoplan.controllers.Partner.DisplayContractController">
+
+    <children>
+        <!-- Header Section -->
+        <VBox alignment="CENTER" spacing="15" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="20.0">
+            <Label style="-fx-font-size: 40px; -fx-font-weight: bold; -fx-font-family: 'Segoe UI'; -fx-text-fill: linear-gradient(to right, #3f51b5, #2196F3);" text="List of Contracts">
+                <effect>
+                    <DropShadow color="rgba(0, 0, 0, 0.2)" radius="8" />
+                </effect>
+            </Label>
+        </VBox>
+
+        <!-- Search and Filter Section -->
+        <HBox spacing="10" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="80.0">
+            <TextField fx:id="searchField" prefHeight="36.0" prefWidth="233.0" promptText="Search..." style="-fx-background-color: white; -fx-border-color: #e0e0e0; -fx-border-radius: 5; -fx-padding: 5 10;" HBox.hgrow="ALWAYS" />
+            <ComboBox fx:id="statusFilter" prefHeight="36.0" prefWidth="150.0" promptText="Filter by Status" style="-fx-background-color: white; -fx-border-color: #e0e0e0; -fx-border-radius: 5;">
+                <items>
+                    <FXCollections fx:factory="observableArrayList">
+                        <String fx:value="All" />
+                        <String fx:value="active" />
+                        <String fx:value="expired" />
+                        <String fx:value="suspended" />
+                    </FXCollections>
+                </items>
+            </ComboBox>
+        </HBox>
+
+        <!-- Table Section -->
+        <TableView fx:id="contractsTable" style="-fx-background-color: white; -fx-border-radius: 10; -fx-border-color: #e0e0e0; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 10, 0, 0, 5);" AnchorPane.bottomAnchor="130.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="120.0">
+            <columns>
+                <TableColumn fx:id="idContractColumn" prefWidth="96.0" style="-fx-font-weight: bold;" text="ID Contract" />
+                <TableColumn fx:id="idPartnershipColumn" prefWidth="103.0" style="-fx-font-weight: bold;" text="ID Partnership" />
+                <TableColumn fx:id="idPartnerColumn" prefWidth="120.0" style="-fx-font-weight: bold;" text="ID Partner" />
+                <TableColumn fx:id="startDateColumn" prefWidth="117.0" style="-fx-font-weight: bold;" text="Start Date" />
+                <TableColumn fx:id="endDateColumn" prefWidth="129.0" style="-fx-font-weight: bold;" text="End Date" />
+                <TableColumn fx:id="termsColumn" prefWidth="183.0" style="-fx-font-weight: bold;" text="Terms" />
+                <TableColumn fx:id="statusColumn" prefWidth="100.0" style="-fx-font-weight: bold;" text="Status" />
+                <TableColumn fx:id="actionsColumn" prefWidth="141.0" />
+            </columns>
+        </TableView>
+
+        <!-- Export to PDF Button -->
+        <Button onAction="#exportToPDF" style="-fx-background-color: linear-gradient(to right, #3f51b5, #2196F3); -fx-text-fill: white; -fx-font-size: 14px; -fx-font-weight: bold; -fx-background-radius: 10; -fx-padding: 10 20; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.3), 10, 0, 0, 5);" text="Export to PDF" AnchorPane.bottomAnchor="14.0" AnchorPane.rightAnchor="14.0" />
+        <Button layoutX="34.0" layoutY="590.0" onAction="#goBack" style="-fx-background-color: linear-gradient(to right, #3f51b5, #2196F3); -fx-text-fill: white; -fx-font-size: 14px; -fx-font-weight: bold; -fx-background-radius: 10; -fx-padding: 10 20; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.3), 10, 0, 0, 5);" text="back" />
+    </children>
+
+    <padding>
+        <Insets bottom="20" left="20" right="20" top="20" />
+    </padding>
+</AnchorPane>

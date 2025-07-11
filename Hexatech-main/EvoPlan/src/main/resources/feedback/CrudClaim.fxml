@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<GridPane xmlns:fx="http://javafx.com/fxml" fx:controller="evoplan.controllers.CrudClaimController"
+          alignment="CENTER" hgap="10" vgap="10">
+    <Label text="Gestion des Réclamations" GridPane.columnIndex="1" GridPane.rowIndex="0"/>
+
+    <Label text="ID Réclamation:" GridPane.columnIndex="0" GridPane.rowIndex="1"/>
+    <TextField fx:id="idField" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+
+    <Label text="Description:" GridPane.columnIndex="0" GridPane.rowIndex="2"/>
+    <TextField fx:id="descriptionField" GridPane.columnIndex="1" GridPane.rowIndex="2"/>
+
+    <Label text="Type:" GridPane.columnIndex="0" GridPane.rowIndex="3"/>
+    <TextField fx:id="typeField" GridPane.columnIndex="1" GridPane.rowIndex="3"/>
+
+    <Label text="Date de création:" GridPane.columnIndex="0" GridPane.rowIndex="4"/>
+    <TextField fx:id="dateField" GridPane.columnIndex="1" GridPane.rowIndex="4"/>
+
+    <Label text="Statut:" GridPane.columnIndex="0" GridPane.rowIndex="5"/>
+    <TextField fx:id="statusField" GridPane.columnIndex="1" GridPane.rowIndex="5"/>
+
+    <Label text="Client ID:" GridPane.columnIndex="0" GridPane.rowIndex="6"/>
+    <TextField fx:id="clientIdField" GridPane.columnIndex="1" GridPane.rowIndex="6"/>
+
+    <Button text="Ajouter" fx:id="addButton" GridPane.columnIndex="0" GridPane.rowIndex="7"/>
+    <Button text="Modifier" fx:id="updateButton" GridPane.columnIndex="1" GridPane.rowIndex="7"/>
+    <Button text="Supprimer" fx:id="deleteButton" GridPane.columnIndex="2" GridPane.rowIndex="7"/>
+
+    <TableView fx:id="claimTable" GridPane.columnIndex="0" GridPane.rowIndex="8" GridPane.columnSpan="3">
+        <columns>
+            <TableColumn text="ID" fx:id="idColumn"/>
+            <TableColumn text="Description" fx:id="descriptionColumn"/>
+            <TableColumn text="Type" fx:id="typeColumn"/>
+            <TableColumn text="Date" fx:id="dateColumn"/>
+            <TableColumn text="Statut" fx:id="statusColumn"/>
+            <TableColumn text="Client ID" fx:id="clientIdColumn"/>
+        </columns>
+    </TableView>
+</GridPane>

@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="672.0" prefWidth="1040.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/23.0.1" fx:controller="evoplan.controllers.feedback.AdminFeedbackController">
+    <VBox spacing="20" AnchorPane.leftAnchor="20" AnchorPane.rightAnchor="20" AnchorPane.topAnchor="20" AnchorPane.bottomAnchor="20">
+        <!-- Header -->
+        <HBox alignment="CENTER_LEFT" spacing="20">
+            <Label text="Feedback &amp; Claims Management" style="-fx-font-size: 24px; -fx-font-weight: bold;"/>
+        </HBox>
+
+        <!-- Tabs for Feedback and Claims -->
+        <TabPane VBox.vgrow="ALWAYS" style="-fx-background-color: transparent;">
+            <Tab text="Feedback Management" closable="false">
+                <VBox spacing="20" style="-fx-padding: 20;">
+                    <!-- Search and Filter Section for Feedback -->
+                    <VBox spacing="10" style="-fx-background-color: white; -fx-padding: 20; -fx-background-radius: 5;">
+                        <HBox spacing="10" alignment="CENTER_LEFT">
+                            <TextField fx:id="feedbackSearchField" promptText="Search feedback..." prefWidth="300"/>
+                            <Label text="Filter by Rating:"/>
+                            <ComboBox fx:id="feedbackRatingFilter" prefWidth="100"/>
+                            <Label text="Filter by Client:"/>
+                            <ComboBox fx:id="feedbackClientFilter" prefWidth="200"/>
+                            <Button fx:id="clearFeedbackFiltersButton" text="Clear Filters"
+                                    style="-fx-background-color: #808080; -fx-text-fill: white;"/>
+                        </HBox>
+                    </VBox>
+
+                    <!-- Feedback Table -->
+                    <VBox spacing="10" VBox.vgrow="ALWAYS">
+                        <Label text="All Feedback" style="-fx-font-size: 18px; -fx-font-weight: bold;"/>
+                        <TableView fx:id="feedbackTable" VBox.vgrow="ALWAYS">
+                            <columns>
+                                <TableColumn fx:id="feedbackClientColumn" text="Client" prefWidth="150"/>
+                                <TableColumn fx:id="feedbackDateColumn" text="Date" prefWidth="150"/>
+                                <TableColumn fx:id="feedbackCommentsColumn" text="Comments" prefWidth="400"/>
+                                <TableColumn fx:id="feedbackRatingColumn" text="Rating" prefWidth="100"/>
+                                <TableColumn fx:id="feedbackActionsColumn" text="Actions" prefWidth="100"/>
+                            </columns>
+                        </TableView>
+                    </VBox>
+                </VBox>
+            </Tab>
+
+            <Tab text="Claims Management" closable="false">
+                <VBox spacing="20" style="-fx-padding: 20;">
+                    <!-- Search and Filter Section for Claims -->
+                    <VBox spacing="10" style="-fx-background-color: white; -fx-padding: 20; -fx-background-radius: 5;">
+                        <HBox spacing="10" alignment="CENTER_LEFT">
+                            <TextField fx:id="claimSearchField" promptText="Search claims..." prefWidth="300"/>
+                            <Label text="Filter by Type:"/>
+                            <ComboBox fx:id="claimTypeFilter" prefWidth="150"/>
+                            <Label text="Filter by Status:"/>
+                            <ComboBox fx:id="claimStatusFilter" prefWidth="150"/>
+                            <Label text="Filter by Client:"/>
+                            <ComboBox fx:id="claimClientFilter" prefWidth="200"/>
+                            <Button fx:id="clearClaimFiltersButton" text="Clear Filters"
+                                    style="-fx-background-color: #808080; -fx-text-fill: white;"/>
+                        </HBox>
+                    </VBox>
+
+                    <!-- Claims Table -->
+                    <VBox spacing="10" VBox.vgrow="ALWAYS">
+                        <Label text="All Claims" style="-fx-font-size: 18px; -fx-font-weight: bold;"/>
+                        <TableView fx:id="claimTable" VBox.vgrow="ALWAYS">
+                            <columns>
+                                <TableColumn fx:id="claimClientColumn" text="Client" prefWidth="150"/>
+                                <TableColumn fx:id="claimDateColumn" text="Date" prefWidth="150"/>
+                                <TableColumn fx:id="claimTypeColumn" text="Type" prefWidth="150"/>
+                                <TableColumn fx:id="claimDescriptionColumn" text="Description" prefWidth="300"/>
+                                <TableColumn fx:id="claimStatusColumn" text="Status" prefWidth="100"/>
+                                <TableColumn fx:id="claimActionsColumn" text="Actions" prefWidth="150"/>
+                            </columns>
+                        </TableView>
+                    </VBox>
+                </VBox>
+            </Tab>
+        </TabPane>
+    </VBox>
+</AnchorPane>

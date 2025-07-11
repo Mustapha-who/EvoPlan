@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Priority?>
+<?import javafx.geometry.Insets?>
+
+<?import java.net.URL?>
+<?import javafx.scene.control.ProgressIndicator?>
+
+<?import javafx.scene.control.ComboBox?>
+<AnchorPane prefHeight="500" prefWidth="800" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="evoplan.controllers.EventPlannerHomePage.WorkshopFrontEnd.ReserveWorkshop">
+    <stylesheets>
+        <URL value="@/css/styles.css" /> <!-- Link to external CSS file -->
+    </stylesheets>
+    <children>
+        <!-- Wrap the entire content in a ScrollPane -->
+        <ScrollPane fitToWidth="true" fitToHeight="true" hbarPolicy="NEVER" vbarPolicy="AS_NEEDED"
+                    AnchorPane.topAnchor="0" AnchorPane.bottomAnchor="0"
+                    AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0">
+            <content>
+                <HBox spacing="20" style="-fx-padding: 20;">
+                    <!-- Main Content Section -->
+                    <VBox spacing="10" minWidth="400" HBox.hgrow="ALWAYS">
+                        <!-- Workshop ID Label -->
+                        <Label fx:id="workshopIdLabel" styleClass="header-label" />
+
+                        <!-- Display User Name -->
+                        <Label text="Name:" styleClass="input-label" />
+                        <TextField fx:id="nameInput" editable="false" styleClass="grayed-out-field" />
+
+                        <!-- Display User Email -->
+                        <Label text="Email:" styleClass="input-label" />
+                        <TextField fx:id="emailInput" editable="false" styleClass="grayed-out-field" />
+
+                        <!-- Session Section -->
+                        <Label text="Available Sessions:" styleClass="header-label" />
+
+                        <!-- Session Container -->
+                        <VBox fx:id="sessionContainer" spacing="5" style="-fx-padding: 10;" VBox.vgrow="ALWAYS" />
+
+                        <!-- Reserve Button -->
+                        <Button fx:id="reserveButton" text="Reserve" onAction="#handleReservation" styleClass="submit-button" />
+                    </VBox>
+
+                    <!-- Vertical Separator -->
+                    <Separator orientation="VERTICAL" />
+
+                    <!-- Side Section: Chatbot and Translation -->
+                    <VBox spacing="10" minWidth="200" HBox.hgrow="NEVER">
+                        <!-- Chatbot Header -->
+                        <Label text="Workshop Assistant" styleClass="header-label" />
+
+                        <!-- Chatbot Input Field -->
+                        <TextField fx:id="chatInputField" promptText="Ask a question about workshops..." />
+
+                        <HBox spacing="10" alignment="CENTER_LEFT">
+                            <Button fx:id="generateButton" text="Generate" onAction="#handleGenerateButtonClick" styleClass="submit-button" />
+                            <ProgressIndicator fx:id="loadingSpinner" visible="false" />
+                        </HBox>
+
+                        <!-- Chatbot Response Area -->
+                        <TextArea fx:id="chatResponseArea" editable="false" wrapText="true" prefHeight="150" />
+
+                        <!-- Translation Section -->
+                        <Label text="Translate Description" styleClass="header-label" />
+
+                        <!-- Language Selection ComboBox -->
+                        <ComboBox fx:id="translationLanguageComboBox" promptText="Select Language" prefWidth="200" />
+
+                        <!-- Translate Button -->
+                        <Button fx:id="translateButton" text="Translate" onAction="#handleTranslateButtonClick" styleClass="submit-button" />
+
+                        <!-- Translated Description TextArea -->
+                        <TextArea fx:id="translatedDescriptionArea" editable="false" wrapText="true" prefHeight="150" promptText="Translated description will appear here..." />
+                    </VBox>
+                </HBox>
+            </content>
+        </ScrollPane>
+    </children>
+</AnchorPane>

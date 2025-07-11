@@ -1,0 +1,5 @@
+.error-message {
+    -fx-text-fill: red;
+    -fx-font-size: 12px;
+    -fx-padding: 2px 0;
+}

@@ -1,0 +1,157 @@
+/* Styles généraux */
+.root {
+    -fx-background-color: #f5f5f5;
+    -fx-font-family: "Segoe UI", Arial, sans-serif;
+}
+
+/* En-tête */
+.header {
+    -fx-background-color: #4059a9;
+    -fx-padding: 15px;
+    -fx-min-height: 60px;
+}
+
+.title-label {
+    -fx-font-size: 22px;
+    -fx-font-weight: bold;
+    -fx-text-fill: white;
+}
+
+.filter-label {
+    -fx-font-size: 14px;
+    -fx-text-fill: white;
+    -fx-alignment: center-right;
+    -fx-padding: 5px 0 0 0;
+}
+
+.period-combo {
+    -fx-background-color: white;
+    -fx-background-radius: 3px;
+}
+
+.refresh-button {
+    -fx-background-color: #66a3ff;
+    -fx-text-fill: white;
+    -fx-background-radius: 3px;
+    -fx-cursor: hand;
+}
+
+.refresh-button:hover {
+    -fx-background-color: #3385ff;
+}
+
+/* Grille de contenu */
+.content-grid {
+    -fx-background-color: #f5f5f5;
+}
+
+/* Boîtes à métriques */
+.metric-box {
+    -fx-background-color: white;
+    -fx-background-radius: 5px;
+    -fx-border-color: #e0e0e0;
+    -fx-border-radius: 5px;
+    -fx-padding: 15px;
+    -fx-spacing: 10px;
+}
+
+.metrics-container {
+    -fx-spacing: 30px;
+    -fx-padding: 10px;
+    -fx-alignment: center;
+}
+
+.metric-item {
+    -fx-alignment: center;
+    -fx-padding: 10px;
+    -fx-border-color: #f0f0f0;
+    -fx-border-radius: 5px;
+    -fx-min-width: 180px;
+    -fx-background-radius: 5px;
+}
+
+.metric-value {
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #333;
+}
+
+/* Conteneurs de graphiques */
+.chart-container {
+    -fx-background-color: white;
+    -fx-background-radius: 5px;
+    -fx-border-color: #e0e0e0;
+    -fx-border-radius: 5px;
+    -fx-padding: 15px;
+    -fx-spacing: 10px;
+}
+
+.section-title {
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #333;
+}
+
+/* Styles des graphiques */
+.line-chart {
+    -fx-create-symbols: true;
+    -fx-background-color: transparent;
+}
+
+.pie-chart {
+    -fx-background-color: transparent;
+    -fx-legend-visible: false;
+}
+
+.axis {
+    -fx-tick-label-font-size: 12px;
+    -fx-font-weight: normal;
+}
+
+.chart-legend {
+    -fx-background-color: transparent;
+}
+
+/* Légende personnalisée */
+.legend-container {
+    -fx-background-color: white;
+    -fx-background-radius: 5px;
+    -fx-border-color: #e0e0e0;
+    -fx-border-radius: 5px;
+    -fx-padding: 15px;
+    -fx-spacing: 10px;
+    -fx-pref-width: 200px;
+    -fx-alignment: top-center;
+}
+
+.legend-items {
+    -fx-padding: 10px 0;
+}
+
+.legend-item {
+    -fx-alignment: center-left;
+}
+
+.legend-color {
+    -fx-min-width: 20px;
+    -fx-min-height: 20px;
+    -fx-border-color: #ccc;
+    -fx-border-radius: 3px;
+    -fx-background-radius: 3px;
+}
+
+/* Animation hover sur les graphiques */
+.chart-series-line:hover {
+    -fx-stroke-width: 5px;
+}
+
+.chart-pie-label {
+    -fx-fill: #333;
+    -fx-font-size: 12px;
+}
+
+.chart-pie:hover {
+    -fx-scale-x: 1.1;
+    -fx-scale-y: 1.1;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.3), 10, 0, 0, 0);
+}

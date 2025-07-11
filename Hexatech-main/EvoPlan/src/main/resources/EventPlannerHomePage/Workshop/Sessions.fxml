@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Text?>
+
+<?import javafx.scene.control.Pagination?>
+<?import javafx.collections.FXCollections?>
+<?import java.lang.String?>
+<?import javafx.scene.layout.Region?>
+<AnchorPane prefHeight="789.0" prefWidth="1139.0" style="-fx-background-color: #f5f6fa;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="evoplan.controllers.EventPlannerHomePage.Session.SessionController">
+    <children>
+        <!-- Header Section with Gradient -->
+        <StackPane prefHeight="124.0" prefWidth="954.0" style="-fx-background-color: linear-gradient(to right, #3f51b5, #5c6bc0);">
+            <padding>
+                <Insets bottom="30" left="40" right="40" top="30" />
+            </padding>
+            <children>
+                <HBox alignment="CENTER_LEFT" spacing="20">
+                    <children>
+                        <VBox spacing="5">
+                            <children>
+                                <Label style="-fx-font-size: 32px; -fx-font-weight: bold; -fx-font-family: 'Segoe UI'; -fx-text-fill: white;" text="Manage Sessions">
+                                    <effect>
+                                        <DropShadow color="rgba(0,0,0,0.3)" radius="5" />
+                                    </effect>
+                                </Label>
+                                <Text fill="white" style="-fx-font-size: 14px; -fx-opacity: 0.9;" text="Manage your sessions" />
+                            </children>
+                        </VBox>
+                        <Region HBox.hgrow="ALWAYS" />
+                        <Button fx:id="addSessionButton" mnemonicParsing="false" onAction="#openAddSessionForm" prefHeight="44.0" prefWidth="169.0" style="-fx-background-color: #4CAF50; -fx-text-fill: white; -fx-font-size: 14px; -fx-font-weight: bold; -fx-background-radius: 20; -fx-padding: 12 25; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 10, 0, 0, 2);" text="+ Add Session" />
+                    </children>
+                </HBox>
+            </children>
+        </StackPane>
+
+        <!-- Search and Filter Section -->
+        <HBox layoutX="57.0" layoutY="180.0" spacing="15" translateX="50.0">
+            <children>
+                <!--       <TextField fx:id="searchField" prefHeight="38.0" prefWidth="200" promptText="Search..." />
+                      <ComboBox fx:id="filterComboBox" prefHeight="34.0" prefWidth="150" promptText="Filter by">
+                          <items>
+                              <FXCollections fx:factory="observableArrayList">
+                                  <String fx:value="Date" />
+                                  <String fx:value="Start Time" />
+                                  <String fx:value="End Time" />
+                                  <String fx:value="Capacity" />
+                              </FXCollections>
+                          </items>
+                      </ComboBox>
+
+
+                      <Button fx:id="clearButton" onAction="#handleClear" prefHeight="34.0" prefWidth="100.0" style="-fx-background-color: #ff4757; -fx-text-fill: white; -fx-font-weight: bold; -fx-padding: 8 15; -fx-background-radius: 5;" text="Clear" />   -->
+
+
+
+            </children>
+        </HBox>
+
+        <!-- Session Table -->
+        <TableView fx:id="sessionTable" layoutX="57.0" layoutY="249.0" prefHeight="400.0" prefWidth="900.0" style="-fx-background-radius: 8; -fx-padding: 10;">
+            <effect>
+                <DropShadow color="#00000022" radius="10.0" spread="0.1" />
+            </effect>
+            <columns>
+                <TableColumn fx:id="idSessionColumn" prefWidth="70" style="-fx-alignment: CENTER;" text="ID Session" />
+                <TableColumn fx:id="DateColumn" prefWidth="70" text="Date" />
+                <TableColumn fx:id="startDateTimeColumn" prefWidth="70" text="Start Time" />
+                <TableColumn fx:id="endDateTimeColumn" prefWidth="70" text="End Time" />
+                <TableColumn fx:id="participantCountColumn" prefWidth="70" text="Participants" />
+                <TableColumn fx:id="capacityColumn" prefWidth="70" text="Capacity" />
+                <TableColumn fx:id="idWorkshopColumn" prefWidth="70" text="ID Workshop" />
+                <TableColumn fx:id="actionColumn" prefWidth="120" text="Actions" />
+            </columns>
+        </TableView>
+
+
+    </children>
+</AnchorPane>

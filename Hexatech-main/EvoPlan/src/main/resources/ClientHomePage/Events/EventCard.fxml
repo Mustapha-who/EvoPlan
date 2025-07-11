@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Rectangle?>
+
+<AnchorPane prefHeight="220.0" prefWidth="250.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="evoplan.controllers.DisplayEventClientController">
+   <children>
+      <!-- Fond avec coins arrondis -->
+      <Rectangle arcHeight="20.0" arcWidth="20.0" height="220.0" style="-fx-fill: #f4f4f4; -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.2), 10, 0, 0, 4);" width="250.0" />
+
+      <!-- Image de l'événement -->
+      <ImageView fx:id="Imageviewid" fitHeight="120.0" fitWidth="250.0" layoutX="0.0" layoutY="0.0" pickOnBounds="true" preserveRatio="true">
+         <clip>
+            <Rectangle arcHeight="20" arcWidth="20" height="120" width="250" />
+         </clip>
+      </ImageView>
+
+      <!-- Nom de l'événement -->
+      <Label fx:id="Nomeventid" layoutX="15.0" layoutY="125.0" prefWidth="220.0" style="-fx-font-size: 18px; -fx-font-weight: bold;" text="Nom de l'Événement" />
+
+      <!-- Date de l'événement -->
+      <Label layoutX="15.0" layoutY="155.0" style="-fx-font-size: 14px;" text="📅" />
+      <Label fx:id="Datedebidd" layoutX="40.0" layoutY="155.0" prefWidth="150.0" style="-fx-font-size: 14px;" text="Date" />
+
+      <!-- Prix de l'événement -->
+      <Label fx:id="prixidE" layoutX="200.0" layoutY="155.0" style="-fx-font-size: 14px; -fx-font-weight: bold;" text="€0.00" />
+
+      <!-- Status de l'événement sous forme de badge -->
+      <Label fx:id="StatusE" layoutX="15.0" layoutY="185.0" prefHeight="28.0" prefWidth="97.0" style="-fx-background-color: #28a745; -fx-text-fill: white; -fx-font-size: 14px; -fx-padding: 4px 8px; -fx-background-radius: 10px;" text="Disponible" />
+   </children>
+</AnchorPane>

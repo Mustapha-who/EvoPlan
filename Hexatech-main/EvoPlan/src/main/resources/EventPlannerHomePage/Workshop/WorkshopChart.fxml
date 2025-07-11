@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.chart.BarChart?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.control.ProgressIndicator?>
+
+<AnchorPane xmlns:fx="http://javafx.com/fxml/1" fx:controller="evoplan.controllers.EventPlannerHomePage.Workshop.WorkshopChartController">
+    <children>
+        <SplitPane fx:id="splitPane" dividerPositions="0.7" layoutX="10" layoutY="10" prefWidth="1200" prefHeight="800">
+            <!-- Left Side: Statistics (Charts) -->
+            <GridPane fx:id="chartGrid" prefWidth="800" prefHeight="800" hgap="10" vgap="10" style="-fx-padding: 20;">
+                <!-- Workshops by Location -->
+                <BarChart fx:id="locationChart" title="Workshops by Location" prefWidth="400" prefHeight="300" GridPane.rowIndex="0" GridPane.columnIndex="0" style="-fx-background-color: #f4f4f4;">
+                    <xAxis>
+                        <CategoryAxis label="Location" />
+                    </xAxis>
+                    <yAxis>
+                        <NumberAxis label="Number of Workshops" />
+                    </yAxis>
+                </BarChart>
+
+                <!-- Most Popular Workshops -->
+                <BarChart fx:id="mostPopularChart" title="Most Popular Workshops" prefWidth="400" prefHeight="300" GridPane.rowIndex="0" GridPane.columnIndex="1" style="-fx-background-color: #f4f4f4;">
+                    <xAxis>
+                        <CategoryAxis label="Workshop" />
+                    </xAxis>
+                    <yAxis>
+                        <NumberAxis label="Participants" />
+                    </yAxis>
+                </BarChart>
+
+                <!-- Least Popular Workshops -->
+                <BarChart fx:id="leastPopularChart" title="Least Popular Workshops" prefWidth="400" prefHeight="300" GridPane.rowIndex="1" GridPane.columnIndex="0" style="-fx-background-color: #f4f4f4;">
+                    <xAxis>
+                        <CategoryAxis label="Workshop" />
+                    </xAxis>
+                    <yAxis>
+                        <NumberAxis label="Participants" />
+                    </yAxis>
+                </BarChart>
+
+                <!-- Attendance Rates -->
+                <BarChart fx:id="attendanceChart" title="Attendance Rates" prefWidth="400" prefHeight="300" GridPane.rowIndex="1" GridPane.columnIndex="1" style="-fx-background-color: #f4f4f4;">
+                    <xAxis>
+                        <CategoryAxis label="Workshop" />
+                    </xAxis>
+                    <yAxis>
+                        <NumberAxis label="Attendance Rate (%)" />
+                    </yAxis>
+                </BarChart>
+            </GridPane>
+
+            <!-- Right Side: Chatbot Input, Button, and Response Area -->
+            <VBox fx:id="rightPane" prefWidth="400" prefHeight="800" spacing="20" style="-fx-padding: 20; -fx-background-color: #e8e8e8;">
+                <!-- Export Button positioned at the top-right -->
+                <HBox alignment="TOP_RIGHT" prefWidth="400">
+                    <Button fx:id="exportButton" text="Export Data" onAction="#handleExportButtonClick"
+                            style="-fx-font-size: 12; -fx-background-color: #2196F3; -fx-text-fill: white;" />
+                </HBox>
+
+                <!-- Chatbot Input Field -->
+                <Label text="Ask a question about the statistics:" style="-fx-font-size: 14; -fx-font-weight: bold;" />
+                <TextField fx:id="chatInputField" promptText="Enter your question here..." prefWidth="300" style="-fx-font-size: 12;" />
+
+                <!-- Generate Button and Loading Spinner -->
+                <HBox spacing="10" alignment="CENTER_LEFT">
+                    <Button fx:id="generateButton" text="Ask" onAction="#handleGenerateButtonClick" prefWidth="100" style="-fx-font-size: 12; -fx-background-color: #4CAF50; -fx-text-fill: white;" />
+                    <ProgressIndicator fx:id="loadingSpinner" visible="false" progress="0" style="-fx-progress-color: #4CAF50;" />
+                </HBox>
+
+                <!-- Chatbot Response Area -->
+                <Label text="Response:" style="-fx-font-size: 14; -fx-font-weight: bold;" />
+                <TextArea fx:id="chatResponseArea" promptText="Response will appear here..." prefWidth="300" prefHeight="200" wrapText="true" editable="false" style="-fx-font-size: 12; -fx-background-color: white;" />
+            </VBox>
+        </SplitPane>
+    </children>
+</AnchorPane>

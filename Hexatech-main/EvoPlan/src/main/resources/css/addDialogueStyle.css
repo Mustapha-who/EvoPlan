@@ -1,0 +1,78 @@
+/* Root Style */
+.root {
+    -fx-background-color: #f4f8fc; /* Light medical blue */
+    -fx-font-family: "Arial";
+}
+
+/* Labels */
+.label {
+    -fx-font-size: 14px;
+    -fx-text-fill: #333;
+}
+
+
+
+/* Title Label */
+.label:first-child {
+    -fx-font-size: 18px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #4166d5;
+}
+
+/* TextFields */
+.text-field {
+    -fx-background-color: #ffffff;
+    -fx-border-color: #3b6cc3;
+    -fx-border-radius: 8px;
+    -fx-padding: 8px;
+}
+
+/* ComboBox */
+.combo-box {
+    -fx-border-color: #3b6cc3;
+    -fx-border-radius: 8px;
+    -fx-background-color: #ffffff;
+}
+
+/* Buttons */
+.button {
+    -fx-background-color: #3b6cc3;
+    -fx-text-fill: white;
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-border-radius: 8px;
+    -fx-padding: 10px 15px;
+    -fx-cursor: hand;
+}
+
+.button:hover {
+    -fx-background-color: #2a5bb5;
+}
+
+/* Error Message Styling */
+.error-message {
+    -fx-text-fill: red; /* Red color for error text */
+    -fx-font-size: 12px;
+    -fx-font-weight: bold;
+    -fx-margin-top: 5px;
+    -fx-padding-top: 2px;
+    -fx-padding-bottom: 5px;
+    display: block;
+}
+
+/* Input Fields */
+.input-field {
+    position: relative;
+}
+/* Style for the parent VBox (dynamicFieldsContainer) */
+.vbox {
+    -fx-spacing: 10px; /* Add spacing between children if needed */
+}
+
+/* Ensure the nested VBox containers have proper display rules */
+.vbox > VBox {
+    -fx-visible: true;  /* Make sure the nested VBox containers are visible */
+    -fx-manage: true;  /* Make sure they are managed for layout */
+}
+
+

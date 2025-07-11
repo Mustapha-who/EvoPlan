@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="1000.0" style="-fx-background-color: #fff;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
+    <children>
+        <!-- Sidebar -->
+        <VBox prefWidth="250.0" style="-fx-background-color: #4166d5; -fx-background-radius: 0 40 40 0;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <children>
+                <!-- Logo and App Name -->
+                <HBox alignment="CENTER" spacing="10" style="-fx-padding: 20;">
+                    <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                        <image>
+                            <Image url="@Img/hexatech.png" />
+                        </image>
+                    </ImageView>
+                    <Label text="EvoPlan" textFill="WHITE">
+                        <font>
+                            <Font name="Segoe UI Bold" size="18.0" />
+                        </font>
+                    </Label>
+                </HBox>
+
+                <!-- Navigation Buttons -->
+                <VBox spacing="10" style="-fx-padding: 20;">
+                    <Button text="Dashboard" style="-fx-background-color: transparent; -fx-text-fill: white; -fx-font-size: 14; -fx-alignment: CENTER_LEFT;">
+                        <graphic>
+                            <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                                <image>
+                                    <Image url="@Img/hexatech.png"  />
+                                </image>
+                            </ImageView>
+                        </graphic>
+                    </Button>
+                    <Button text="Events" style="-fx-background-color: transparent; -fx-text-fill: white; -fx-font-size: 14; -fx-alignment: CENTER_LEFT;">
+                        <graphic>
+                            <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                                <image>
+                                    <Image url="@Img/hexatech.png"  />
+                                </image>
+                            </ImageView>
+                        </graphic>
+                    </Button>
+                    <Button text="Reports" style="-fx-background-color: transparent; -fx-text-fill: white; -fx-font-size: 14; -fx-alignment: CENTER_LEFT;">
+                        <graphic>
+                            <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                                <image>
+                                    <Image url="@Img/hexatech.png"  />
+                                </image>
+                            </ImageView>
+                        </graphic>
+                    </Button>
+                    <Button text="Settings" style="-fx-background-color: transparent; -fx-text-fill: white; -fx-font-size: 14; -fx-alignment: CENTER_LEFT;">
+                        <graphic>
+                            <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                                <image>
+                                    <Image url="@Img/hexatech.png"  />
+                                </image>
+                            </ImageView>
+                        </graphic>
+                    </Button>
+                </VBox>
+
+                <!-- Footer -->
+                <VBox alignment="CENTER" spacing="10" style="-fx-padding: 20;">
+                    <Separator style="-fx-background-color: #fff;" />
+                    <Label text="powered by HexaTech" textFill="WHITE">
+                        <font>
+                            <Font name="Segoe UI" size="12.0" />
+                        </font>
+                    </Label>
+                </VBox>
+            </children>
+        </VBox>
+
+        <!-- Main Content Area -->
+        <AnchorPane layoutX="250.0" prefHeight="600.0" prefWidth="750.0" style="-fx-background-color: #f5f5f5;">
+            <children>
+                <!-- Header -->
+                <HBox alignment="CENTER_RIGHT" style="-fx-background-color: #fff; -fx-padding: 15;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                    <Label text="Welcome, Admin!" textFill="#4166d5">
+                        <font>
+                            <Font name="Segoe UI Bold" size="16.0" />
+                        </font>
+                    </Label>
+                </HBox>
+
+                <!-- Content -->
+                <VBox spacing="20" style="-fx-padding: 20;" AnchorPane.topAnchor="60.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0">
+                    <!-- Quick Stats -->
+                    <HBox spacing="20">
+                        <VBox style="-fx-background-color: #fff; -fx-background-radius: 10; -fx-padding: 20;" prefWidth="200" prefHeight="100">
+                            <Label text="Total Events" textFill="#4166d5">
+                                <font>
+                                    <Font name="Segoe UI Bold" size="14.0" />
+                                </font>
+                            </Label>
+                            <Label text="25" textFill="#2a5058">
+                                <font>
+                                    <Font name="Segoe UI" size="24.0" />
+                                </font>
+                            </Label>
+                        </VBox>
+                        <VBox style="-fx-background-color: #fff; -fx-background-radius: 10; -fx-padding: 20;" prefWidth="200" prefHeight="100">
+                            <Label text="Upcoming Events" textFill="#4166d5">
+                                <font>
+                                    <Font name="Segoe UI Bold" size="14.0" />
+                                </font>
+                            </Label>
+                            <Label text="5" textFill="#2a5058">
+                                <font>
+                                    <Font name="Segoe UI" size="24.0" />
+                                </font>
+                            </Label>
+                        </VBox>
+                        <VBox style="-fx-background-color: #fff; -fx-background-radius: 10; -fx-padding: 20;" prefWidth="200" prefHeight="100">
+                            <Label text="Completed Events" textFill="#4166d5">
+                                <font>
+                                    <Font name="Segoe UI Bold" size="14.0" />
+                                </font>
+                            </Label>
+                            <Label text="20" textFill="#2a5058">
+                                <font>
+                                    <Font name="Segoe UI" size="24.0" />
+                                </font>
+                            </Label>
+                        </VBox>
+                    </HBox>
+
+                    <!-- Charts Placeholder -->
+                    <VBox style="-fx-background-color: #fff; -fx-background-radius: 10; -fx-padding: 20;" prefWidth="700" prefHeight="300">
+                        <Label text="Event Statistics" textFill="#4166d5">
+                            <font>
+                                <Font name="Segoe UI Bold" size="16.0" />
+                            </font>
+                        </Label>
+                        <!-- Placeholder for Chart -->
+                        <Label text="Chart will be displayed here" textFill="#2a5058" />
+                    </VBox>
+
+                    <!-- Recent Events Table Placeholder -->
+                    <VBox style="-fx-background-color: #fff; -fx-background-radius: 10; -fx-padding: 20;" prefWidth="700" prefHeight="200">
+                        <Label text="Recent Events" textFill="#4166d5">
+                            <font>
+                                <Font name="Segoe UI Bold" size="16.0" />
+                            </font>
+                        </Label>
+                        <!-- Placeholder for Table -->
+                        <Label text="Table will be displayed here" textFill="#2a5058" />
+                    </VBox>
+                </VBox>
+            </children>
+        </AnchorPane>
+    </children>
+</AnchorPane>

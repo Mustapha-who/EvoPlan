@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="672.0" prefWidth="1040.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/23.0.1" fx:controller="evoplan.controllers.api.APIController">
+    <VBox spacing="20" AnchorPane.leftAnchor="20" AnchorPane.rightAnchor="20" AnchorPane.topAnchor="20" AnchorPane.bottomAnchor="20">
+        <!-- Header -->
+        <HBox alignment="CENTER_LEFT" spacing="20">
+            <Label text="API Services" style="-fx-font-size: 24px; -fx-font-weight: bold;"/>
+        </HBox>
+
+        <!-- API Sections -->
+        <TabPane VBox.vgrow="ALWAYS" style="-fx-background-color: transparent;">
+            <!-- Quotes API Section -->
+            <Tab text="Quotes API" closable="false">
+                <VBox spacing="20" style="-fx-padding: 20;">
+                    <VBox spacing="10" style="-fx-background-color: white; -fx-padding: 20; -fx-background-radius: 5;">
+                        <Label text="Get Random Quote" style="-fx-font-size: 18px; -fx-font-weight: bold;"/>
+                        <Button fx:id="getQuoteButton" text="Get Quote" style="-fx-background-color: #4166d5; -fx-text-fill: white;"/>
+                        <TextArea fx:id="quoteDisplay" prefRowCount="3" editable="false" wrapText="true"/>
+                    </VBox>
+                </VBox>
+            </Tab>
+
+            <!-- Commodity Price API Section -->
+            <Tab text="Commodity Prices" closable="false">
+                <VBox spacing="20" style="-fx-padding: 20;">
+                    <VBox spacing="10" style="-fx-background-color: white; -fx-padding: 20; -fx-background-radius: 5;">
+                        <Label text="Get Commodity Prices" style="-fx-font-size: 18px; -fx-font-weight: bold;"/>
+                        <ComboBox fx:id="commoditySelector" promptText="Select Commodity"/>
+                        <Button fx:id="getPriceButton" text="Get Price" style="-fx-background-color: #4166d5; -fx-text-fill: white;"/>
+                        <Label fx:id="priceDisplay" style="-fx-font-size: 16px;"/>
+                    </VBox>
+                </VBox>
+            </Tab>
+
+            <!-- Currency Converter API Section -->
+            <Tab text="Currency Converter" closable="false">
+                <VBox spacing="20" style="-fx-padding: 20;">
+                    <VBox spacing="10" style="-fx-background-color: white; -fx-padding: 20; -fx-background-radius: 5;">
+                        <Label text="Convert Currency" style="-fx-font-size: 18px; -fx-font-weight: bold;"/>
+                        <HBox spacing="10" alignment="CENTER_LEFT">
+                            <TextField fx:id="amountField" promptText="Amount" prefWidth="150"/>
+                            <ComboBox fx:id="fromCurrencySelector" promptText="From Currency"/>
+                            <Label text="to"/>
+                            <ComboBox fx:id="toCurrencySelector" promptText="To Currency"/>
+                            <Button fx:id="convertButton" text="Convert" style="-fx-background-color: #4166d5; -fx-text-fill: white;"/>
+                        </HBox>
+                        <Label fx:id="conversionResultDisplay" style="-fx-font-size: 16px;"/>
+                    </VBox>
+                </VBox>
+            </Tab>
+        </TabPane>
+    </VBox>
+</AnchorPane>

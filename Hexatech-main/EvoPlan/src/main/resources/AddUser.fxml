@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import javafx.collections.FXCollections?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DialogPane?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<?import javafx.scene.control.PasswordField?>
+<DialogPane prefHeight="303.0" prefWidth="265.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="evoplan.controllers.userModule.AddUserDialogController">
+    <content>
+        <VBox fx:id="formContainer" spacing="10" style="-fx-padding: 20px; -fx-background-color: #ffffff;" stylesheets="@css/addDialogueStyle.css">
+            <Label style="-fx-font-size: 18px; -fx-text-fill: #4166d5;" text="Add New User">
+                <font>
+                    <Font name="System Bold" size="14.0" />
+                </font>
+            </Label>
+
+            <!-- Username Field -->
+            <TextField fx:id="usernameField" promptText="Username" />
+            <Label fx:id="usernameError" styleClass="error-message" visible="false" />
+
+            <!-- Email Field -->
+            <TextField fx:id="emailField" promptText="Email" />
+            <Label fx:id="emailError" styleClass="error-message" visible="false" />
+
+            <!-- Password Field -->
+            <PasswordField fx:id="passwordField" promptText="Enter password" />
+            <Label fx:id="passwordError" styleClass="error-message" visible="false" />
+
+            <!-- Role Selection -->
+            <ComboBox fx:id="roleComboBox" onAction="#onRoleSelected" promptText="Select Role">
+                <items>
+                    <FXCollections fx:factory="observableArrayList">
+                        <String fx:value="Client" />
+                        <String fx:value="Event Planner" />
+                        <String fx:value="Instructor" />
+                    </FXCollections>
+                </items>
+            </ComboBox>
+            <Label fx:id="roleError" styleClass="error-message" visible="false" />
+
+            <!-- Dynamic Fields Container -->
+            <VBox fx:id="dynamicFieldsContainer" spacing="10">
+                <!-- Client Fields -->
+                <VBox fx:id="clientFields" visible="false" managed="false" spacing="10">
+                    <TextField fx:id="clientPhoneNumberField" promptText="Phone number" />
+                    <Label fx:id="clientPhoneNumberError" styleClass="error-message" visible="false" />
+                </VBox>
+
+                <!-- Event Planner Fields -->
+                <VBox fx:id="eventPlannerFields" visible="false" managed="false" spacing="10">
+                    <TextField fx:id="plannerDepartmentField" promptText="Department" />
+                    <Label fx:id="plannerDepartmentError" styleClass="error-message" visible="false" />
+                </VBox>
+
+                <!-- Instructor Fields -->
+                <VBox fx:id="instructorFields" visible="false" managed="false" spacing="10">
+                    <TextField fx:id="instructorCertificationField" promptText="Certification" />
+                    <Label fx:id="instructorCertificationError" styleClass="error-message" visible="false" />
+                </VBox>
+            </VBox>
+
+            <Button fx:id="submitButton" onAction="#onSubmit" style="-fx-background-color: #3b6cc3; -fx-text-fill: white; -fx-font-size: 14px;" text="Submit" />
+        </VBox>
+    </content>
+</DialogPane>
+

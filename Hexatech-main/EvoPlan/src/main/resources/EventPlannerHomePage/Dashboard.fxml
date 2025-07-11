@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="1000.0" style="-fx-background-color: #fff;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="evoplan.controllers.EventPlannerDashboardController">
+    <children>
+        <!-- Main Content Area -->
+        <AnchorPane prefHeight="739.0" prefWidth="1000.0" style="-fx-background-color: #f5f5f5;">
+            <children>
+                <!-- Header -->
+                <HBox alignment="CENTER_RIGHT" style="-fx-background-color: #fff; -fx-padding: 15;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                    <Label text="Welcome, event planner admin!" textFill="#4166d5">
+                        <font>
+                            <Font name="Segoe UI Bold" size="16.0" />
+                        </font>
+                    </Label>
+                </HBox>
+
+                <!-- Content -->
+                <VBox spacing="20" style="-fx-padding: 20;" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="60.0">
+                    <!-- Quick Stats -->
+                    <HBox spacing="20">
+                        <!-- Events Stats -->
+                        <VBox prefHeight="100" prefWidth="200" style="-fx-background-color: #fff; -fx-background-radius: 10; -fx-padding: 20;">
+                            <Label text="Total Events" textFill="#4166d5">
+                                <font>
+                                    <Font name="Segoe UI Bold" size="14.0" />
+                                </font>
+                            </Label>
+                            <Label fx:id="totalEventsLabel" text="25" textFill="#2a5058">
+                                <font>
+                                    <Font name="Segoe UI" size="24.0" />
+                                </font>
+                            </Label>
+                        </VBox>
+                        <VBox prefHeight="100" prefWidth="200" style="-fx-background-color: #fff; -fx-background-radius: 10; -fx-padding: 20;">
+                            <Label text="Upcoming Events" textFill="#4166d5">
+                                <font>
+                                    <Font name="Segoe UI Bold" size="14.0" />
+                                </font>
+                            </Label>
+                            <Label fx:id="upcomingEventsLabel" text="5" textFill="#2a5058">
+                                <font>
+                                    <Font name="Segoe UI" size="24.0" />
+                                </font>
+                            </Label>
+                        </VBox>
+                        <VBox prefHeight="100" prefWidth="200" style="-fx-background-color: #fff; -fx-background-radius: 10; -fx-padding: 20;">
+                            <Label text="Completed Events" textFill="#4166d5">
+                                <font>
+                                    <Font name="Segoe UI Bold" size="14.0" />
+                                </font>
+                            </Label>
+                            <Label fx:id="completedEventsLabel" text="20" textFill="#2a5058">
+                                <font>
+                                    <Font name="Segoe UI" size="24.0" />
+                                </font>
+                            </Label>
+                        </VBox>
+                    </HBox>
+
+                    <!-- Feedback & Claims Stats -->
+                    <HBox spacing="20">
+                        <!-- Feedback Stats -->
+                        <VBox prefHeight="120" prefWidth="300" style="-fx-background-color: #fff; -fx-background-radius: 10; -fx-padding: 20;">
+                            <Label text="Feedback Overview" textFill="#4166d5">
+                                <font>
+                                    <Font name="Segoe UI Bold" size="14.0" />
+                                </font>
+                            </Label>
+                            <HBox alignment="CENTER_LEFT" spacing="20">
+                                <VBox>
+                                    <Label text="Total Feedback" textFill="#666666">
+                                        <font>
+                                            <Font name="Segoe UI" size="12.0" />
+                                        </font>
+                                    </Label>
+                                    <Label fx:id="totalFeedbackLabel" text="0" textFill="#2a5058">
+                                        <font>
+                                            <Font name="Segoe UI" size="24.0" />
+                                        </font>
+                                    </Label>
+                                </VBox>
+                                <Button fx:id="manageFeedbackButton" onAction="#handleManageFeedback" style="-fx-background-color: #4166d5; -fx-text-fill: white;" text="Manage Feedback" />
+                            </HBox>
+                        </VBox>
+
+                        <!-- Claims Stats -->
+                        <VBox prefHeight="120" prefWidth="300" style="-fx-background-color: #fff; -fx-background-radius: 10; -fx-padding: 20;">
+                            <Label text="Claims Overview" textFill="#4166d5">
+                                <font>
+                                    <Font name="Segoe UI Bold" size="14.0" />
+                                </font>
+                            </Label>
+                            <HBox alignment="CENTER_LEFT" spacing="20">
+                                <VBox>
+                                    <Label text="Total Claims" textFill="#666666">
+                                        <font>
+                                            <Font name="Segoe UI" size="12.0" />
+                                        </font>
+                                    </Label>
+                                    <Label fx:id="totalClaimsLabel" text="0" textFill="#2a5058">
+                                        <font>
+                                            <Font name="Segoe UI" size="24.0" />
+                                        </font>
+                                    </Label>
+                                </VBox>
+                                <Button fx:id="manageClaimsButton" onAction="#handleManageClaims" style="-fx-background-color: #4166d5; -fx-text-fill: white;" text="Manage Claims" />
+                            </HBox>
+                        </VBox>
+                    </HBox>
+
+                    <!-- Charts Placeholder -->
+                    <VBox prefHeight="300" prefWidth="700" style="-fx-background-color: #fff; -fx-background-radius: 10; -fx-padding: 20;">
+                        <Label text="Event Statistics" textFill="#4166d5">
+                            <font>
+                                <Font name="Segoe UI Bold" size="16.0" />
+                            </font>
+                        </Label>
+                        <!-- Placeholder for Chart -->
+                        <Label text="Chart will be displayed here" textFill="#2a5058" />
+                    </VBox>
+
+                    <!-- Recent Events Table -->
+                    <VBox prefWidth="700" style="-fx-background-color: #fff; -fx-background-radius: 10; -fx-padding: 20;" VBox.vgrow="ALWAYS">
+                        <Label text="Recent Events" textFill="#4166d5">
+                            <font>
+                                <Font name="Segoe UI Bold" size="16.0" />
+                            </font>
+                        </Label>
+                        <!-- Table will be added here in the controller -->
+                    </VBox>
+                </VBox>
+            </children>
+        </AnchorPane>
+    </children>
+</AnchorPane>

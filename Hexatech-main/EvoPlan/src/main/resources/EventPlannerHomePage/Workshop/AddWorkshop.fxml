@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.DialogPane?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.ProgressIndicator?>
+
+<DialogPane prefHeight="500.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="evoplan.controllers.EventPlannerHomePage.Workshop.AddWorkshopDialogController">
+    <content>
+        <HBox spacing="10" style="-fx-padding: 10px; -fx-background-color: #ffffff;">
+            <!-- Left Side: Workshop Form -->
+            <VBox fx:id="formContainer" spacing="6" prefWidth="300">
+                <Label style="-fx-font-size: 18px; -fx-text-fill: #4166d5;" text="Add New Workshop">
+                    <font>
+                        <Font name="System Bold" size="14.0" />
+                    </font>
+                </Label>
+
+                <!-- Title Field -->
+                <Label text="Title" style="-fx-font-weight: bold;"/>
+                <TextField fx:id="titleField" promptText="Enter workshop title" />
+                <Label fx:id="titleError" styleClass="error-message" visible="false" />
+
+                <!-- Date Field -->
+                <Label text="Date" style="-fx-font-weight: bold;"/>
+                <DatePicker fx:id="datePicker" promptText="Select date" />
+                <Label fx:id="dateError" styleClass="error-message" visible="false" />
+
+                <!-- End Date Field -->
+                <Label text="End Date" style="-fx-font-weight: bold;"/>
+                <DatePicker fx:id="endDatePicker" promptText="Select end date" />
+                <Label fx:id="endDateError" styleClass="error-message" visible="false" />
+
+                <!-- Instructor Field -->
+                <Label text="Instructor" style="-fx-font-weight: bold;"/>
+                <ComboBox fx:id="instructorComboBox" promptText="Select Instructor" />
+                <Label fx:id="instructorError" styleClass="error-message" visible="false" />
+
+                <!-- Event Field -->
+                <Label text="Event" style="-fx-font-weight: bold;"/>
+                <ComboBox fx:id="eventComboBox" promptText="Select Event" />
+                <Label fx:id="eventError" styleClass="error-message" visible="false" />
+
+                <!-- Capacity Field -->
+                <Label text="Capacity" style="-fx-font-weight: bold;"/>
+                <TextField fx:id="capacityField" promptText="Enter capacity" />
+                <Label fx:id="capacityError" styleClass="error-message" visible="false" />
+
+                <!-- Location Field -->
+                <Label text="Location" style="-fx-font-weight: bold;"/>
+                <TextField fx:id="locationField" promptText="Enter location" />
+                <Label fx:id="locationError" styleClass="error-message" visible="false" />
+
+                <!-- Description Field -->
+                <Label text="Description" style="-fx-font-weight: bold;"/>
+                <TextArea fx:id="descriptionField" promptText="Enter description" minHeight="60" wrapText="true"/>
+                <Label fx:id="descriptionError" styleClass="error-message" visible="false" />
+
+                <!-- Submit Button -->
+                <Button fx:id="submitButton" onAction="#onSubmit" style="-fx-background-color: #3b6cc3; -fx-text-fill: white; -fx-font-size: 14px;" text="Submit" />
+            </VBox>
+
+            <!-- Vertical Separator -->
+            <Separator orientation="VERTICAL" />
+
+            <!-- Right Side: Chatbot Section -->
+            <VBox spacing="6" prefWidth="300">
+                <Label style="-fx-font-size: 18px; -fx-text-fill: #4166d5;" text="Workshop Assistant">
+                    <font>
+                        <Font name="System Bold" size="14.0" />
+                    </font>
+                </Label>
+
+                <!-- Chatbot Input Field -->
+                <Label text="Ask for Workshop Example" style="-fx-font-weight: bold;"/>
+                <TextField fx:id="chatInputField" promptText="Give me an example of a workshop" />
+
+                <!-- Generate Button and Loading Spinner -->
+                <HBox spacing="6" alignment="CENTER_LEFT">
+                    <Button fx:id="generateButton" onAction="#handleGenerateButtonClick" style="-fx-background-color: #3b6cc3; -fx-text-fill: white; -fx-font-size: 14px;" text="Generate" />
+                    <ProgressIndicator fx:id="loadingSpinner" visible="false" />
+                </HBox>
+
+                <!-- Chatbot Response Area -->
+                <TextArea fx:id="chatResponseArea" editable="false" wrapText="true" prefHeight="200" />
+            </VBox>
+        </HBox>
+    </content>
+</DialogPane>

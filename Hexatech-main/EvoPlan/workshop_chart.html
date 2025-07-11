@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Workshop Analytics</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 0; padding: 20px; }
+        .main-container { display: flex; }
+        .charts-container { flex: 1; padding-right: 20px; }
+        .generator-container { flex: 0 0 300px; padding: 20px; background-color: #f5f5f5; border-radius: 8px; }
+        .vertical-divider { width: 1px; background-color: #ddd; margin: 0 20px; }
+        h1 { text-align: center; color: #2196F3; }
+        h2 { color: #2196F3; }
+        .chart-container { height: 300px; margin-bottom: 40px; }
+        canvas { border: 1px solid #ddd; }
+        input, textarea, button { width: 100%; margin-bottom: 15px; padding: 10px; box-sizing: border-box; }
+        textarea { height: 150px; resize: vertical; }
+        button { background-color: #2196F3; color: white; border: none; border-radius: 4px; cursor: pointer; font-weight: bold; }
+        button:hover { background-color: #0b7dda; }
+        label { display: block; margin-bottom: 5px; font-weight: bold; }
+    </style>
+</head>
+<body>
+    <h1>Workshop Analytics</h1>
+    <div class="main-container">
+        <div class="charts-container">
+            <h2>Total Workshops: 9</h2>
+            <div class="chart-container">
+                <canvas id="locationChart"></canvas>
+            </div>
+            <div class="chart-container">
+                <canvas id="mostPopularChart"></canvas>
+            </div>
+            <div class="chart-container">
+                <canvas id="leastPopularChart"></canvas>
+            </div>
+            <div class="chart-container">
+                <canvas id="attendanceChart"></canvas>
+            </div>
+        </div>
+        <div class="vertical-divider"></div>
+        <div class="generator-container">
+            <h2>Report Generator</h2>
+            <label for="reportType">Ask a question:</label>
+            <input type="text" id="reportType" placeholder="Enter your question...">
+            <button id="generateBtn">Generate Report</button>
+            <label for="description">Bot Response:</label>
+            <textarea id="description" readonly placeholder="Bot's response will appear here..."></textarea>
+        </div>
+    </div>
+
+    <script>
+        var locationLabels = ["aaa", "rt", "zaeaz", "azeaa", "tunisisa", "tunisia", "SZAEZA", "Ariana Sports Complex"];
+        var locationData = [1, 1, 1, 1, 1, 1, 1, 1];
+        var mostPopularLabels = ["ffff", "aa", "mustapha", "", ""];
+        var mostPopularData = [4, 4, 2, 2, 2];
+        var leastPopularLabels = ["First Aid Training Seminar", "mustapha", "", "", ""];
+        var leastPopularData = [1, 2, 2, 2, 2];
+        var attendanceLabels = ["ffff", "mustapha", "sqjkdhhazjea", "aa", "First Aid Training Seminar", "", "", ""];
+        var attendanceData = [66.66667, 33.84615, 17.0, 0.0, 0.0, 0.0, 0.0, 0.0];
+
+        var backgroundColors = [
+            'rgba(54, 162, 235, 0.7)',
+            'rgba(255, 99, 132, 0.7)',
+            'rgba(255, 206, 86, 0.7)',
+            'rgba(75, 192, 192, 0.7)',
+            'rgba(153, 102, 255, 0.7)',
+            'rgba(255, 159, 64, 0.7)',
+            'rgba(199, 199, 199, 0.7)'
+        ];
+
+        // Location Chart
+        var locationCtx = document.getElementById('locationChart').getContext('2d');
+        new Chart(locationCtx, {
+            type: 'bar',
+            data: {
+                labels: locationLabels,
+                datasets: [{
+                    label: 'Workshops by Location',
+                    data: locationData,
+                    backgroundColor: backgroundColors,
+                    borderColor: backgroundColors.map(color => color.replace('0.7', '1')),
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    title: {
+                        display: true,
+                        text: 'Workshops by Location'
+                    }
+                }
+            }
+        });
+
+        // Most Popular Chart
+        var mostPopularCtx = document.getElementById('mostPopularChart').getContext('2d');
+        new Chart(mostPopularCtx, {
+            type: 'bar',
+            data: {
+                labels: mostPopularLabels,
+                datasets: [{
+                    label: 'Most Popular Workshops',
+                    data: mostPopularData,
+                    backgroundColor: backgroundColors,
+                    borderColor: backgroundColors.map(color => color.replace('0.7', '1')),
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    title: {
+                        display: true,
+                        text: 'Most Popular Workshops'
+                    }
+                }
+            }
+        });
+
+        // Least Popular Chart
+        var leastPopularCtx = document.getElementById('leastPopularChart').getContext('2d');
+        new Chart(leastPopularCtx, {
+            type: 'bar',
+            data: {
+                labels: leastPopularLabels,
+                datasets: [{
+                    label: 'Least Popular Workshops',
+                    data: leastPopularData,
+                    backgroundColor: backgroundColors,
+                    borderColor: backgroundColors.map(color => color.replace('0.7', '1')),
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    title: {
+                        display: true,
+                        text: 'Least Popular Workshops'
+                    }
+                }
+            }
+        });
+
+        // Attendance Chart
+        var attendanceCtx = document.getElementById('attendanceChart').getContext('2d');
+        new Chart(attendanceCtx, {
+            type: 'bar',
+            data: {
+                labels: attendanceLabels,
+                datasets: [{
+                    label: 'Attendance Rate (%)',
+                    data: attendanceData,
+                    backgroundColor: backgroundColors,
+                    borderColor: backgroundColors.map(color => color.replace('0.7', '1')),
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    title: {
+                        display: true,
+                        text: 'Workshop Attendance Rates'
+                    }
+                }
+            }
+        });
+
+        // Handle the generate button click
+document.getElementById('generateBtn').addEventListener('click', function() {
+    var userInput = document.getElementById('reportType').value.trim();
+    var descriptionEl = document.getElementById('description');
+
+    if (!userInput) {
+        descriptionEl.value = 'Please enter a question or report type.';
+        return;
+    }
+
+    // Show loading state
+    descriptionEl.value = 'Generating response...';
+    console.log("Button clicked. User input: " + userInput);
+
+    // Check if javaConnector and getBotResponse are available
+    if (typeof javaConnector === 'undefined' || typeof javaConnector.getBotResponse !== 'function') {
+        console.error("javaConnector or getBotResponse is not defined.");
+        descriptionEl.value = 'Error: Java connector is not available.';
+        return;
+    }
+
+    // Call the Java method to get the bot's response
+    console.log("Calling javaConnector.getBotResponse...");
+    javaConnector.getBotResponse(userInput).then(function(response) {
+        console.log("Received response from Java: " + response);
+        descriptionEl.value = response;
+    }).catch(function(error) {
+        console.error("Error in JavaScript:", error);
+        descriptionEl.value = 'Error: Unable to generate response.';
+    });
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.collections.FXCollections?>
+<?import javafx.scene.control.Alert?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<?import javafx.scene.control.DialogPane?>
+<?import javafx.scene.control.DatePicker?>
+
+<DialogPane prefHeight="303.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="evoplan.controllers.EventPlannerHomePage.Workshop.EditWorkshopController" stylesheets="@/css/addDialogueStyle.css">
+    <content>
+        <VBox fx:id="formContainer" spacing="10" style="-fx-padding: 20px; -fx-background-color: #ffffff;">
+
+            <!-- Title at the top -->
+            <Label style="-fx-font-size: 24px; -fx-text-fill: #4166d5;" text="Edit Workshop" />
+
+            <!-- Workshop Title -->
+            <VBox spacing="5">
+                <Label text="Workshop Title" />
+                <TextField fx:id="titleField" promptText="Enter Workshop Title" />
+                <Label fx:id="titleError" styleClass="error-message" visible="false" />
+            </VBox>
+
+            <!-- Start Date -->
+            <VBox spacing="5">
+                <Label text="Start Date" />
+                <DatePicker fx:id="datePicker" promptText="Select Date" />
+                <Label fx:id="dateError" styleClass="error-message" visible="false" />
+            </VBox>
+
+            <!-- End Date -->
+            <VBox spacing="5">
+                <Label text="End Date" />
+                <DatePicker fx:id="endDatePicker" promptText="Select Date" />
+                <Label fx:id="endDateError" styleClass="error-message" visible="false" />
+            </VBox>
+
+            <!-- Capacity -->
+            <VBox spacing="5">
+                <Label text="Capacity" />
+                <TextField fx:id="capacityField" promptText="Enter Capacity" />
+                <Label fx:id="capacityError" styleClass="error-message" visible="false" />
+            </VBox>
+
+            <!-- Location -->
+            <VBox spacing="5">
+                <Label text="Location" />
+                <TextField fx:id="locationField" promptText="Enter Location" />
+                <Label fx:id="locationError" styleClass="error-message" visible="false" />
+            </VBox>
+
+            <!-- Description -->
+            <VBox spacing="5">
+                <Label text="Description" />
+                <TextField fx:id="descriptionField" promptText="Enter Description" />
+                <Label fx:id="descriptionError" styleClass="error-message" visible="false" />
+            </VBox>
+
+            <!-- Instructor (Non-editable) -->
+            <VBox spacing="5">
+
+                <TextField fx:id="instructorField" promptText="Instructor" editable="false" visible="false" />
+                <Label fx:id="instructorError" styleClass="error-message" visible="false" />
+            </VBox>
+
+            <!-- Event (Non-editable) -->
+            <VBox spacing="5">
+
+                <TextField fx:id="eventField" promptText="Event" editable="false" visible="false" />
+                <Label fx:id="eventError" styleClass="error-message" visible="false" />
+            </VBox>
+
+            <!-- Dynamic Fields Box -->
+            <VBox fx:id="dynamicFieldsBox" spacing="10" />
+
+            <HBox spacing="10" alignment="center">
+                <Button fx:id="cancelButton" onAction="#handleCancel" text="Cancel" />
+                <Button fx:id="updateButton" onAction="#handleUpdate" text="Update" />
+            </HBox>
+        </VBox>
+    </content>
+</DialogPane>

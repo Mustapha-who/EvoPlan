@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.text.Text?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.paint.Color?>
+
+<?import java.net.URL?>
+<?import javafx.scene.layout.FlowPane?>
+<ScrollPane fitToWidth="true" prefHeight="600" prefWidth="900" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="evoplan.controllers.EventPlannerHomePage.WorkshopFrontEnd.Workshops">
+    <stylesheets>
+        <URL value="@/css/WorkshopsCards.css" /> <!-- Link to external CSS file -->
+    </stylesheets>
+    <content>
+        <AnchorPane prefHeight="600" prefWidth="900" style="-fx-background-color: #f5f6fa;">
+            <children>
+                <!-- Header Section with Gradient -->
+                <StackPane prefHeight="100.0" prefWidth="800.0" style="-fx-background-color: linear-gradient(to right, #3f51b5, #5c6bc0);">
+                    <padding>
+                        <Insets bottom="20" left="40" right="40" top="20" />
+                    </padding>
+                    <children>
+                        <HBox alignment="CENTER_LEFT" spacing="20">
+                            <children>
+                                <VBox spacing="5">
+                                    <children>
+                                        <Label style="-fx-font-size: 28px; -fx-font-weight: bold; -fx-font-family: 'Segoe UI'; -fx-text-fill: white;" text="Workshops">
+                                            <effect>
+                                                <DropShadow color="rgba(0,0,0,0.3)" radius="5" />
+                                            </effect>
+                                        </Label>
+                                        <Text fill="white" style="-fx-font-size: 14px; -fx-opacity: 0.9;" text="Explore our workshops :)" />
+                                    </children>
+                                </VBox>
+                                <Region HBox.hgrow="ALWAYS" />
+                            </children>
+                        </HBox>
+                    </children>
+                </StackPane>
+
+                <!-- Workshop Container (Flow Layout) -->
+                <FlowPane fx:id="workshopContainer" layoutX="40.0" layoutY="120.0" prefWidth="750" hgap="20" vgap="20">
+                    <!-- Workshop Card Template -->
+                    <VBox fx:id="workshopCardTemplate" prefWidth="200.0" styleClass="workshop-card" visible="false">
+                        <Label fx:id="workshopTitle" styleClass="workshop-title" />
+                        <Label fx:id="workshopDate" styleClass="workshop-detail" />
+                        <Label fx:id="workshopEndDate" styleClass="workshop-detail" />
+                        <Label fx:id="workshopInstructor" styleClass="workshop-detail" />
+                        <Label fx:id="workshopCapacity" styleClass="workshop-detail" />
+                        <Label fx:id="workshopLocation" styleClass="workshop-detail" />
+                        <Label fx:id="workshopDescription" styleClass="workshop-description" wrapText="true" />
+                        <Button mnemonicParsing="false" style="-fx-background-color: #3f51b5; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 5; -fx-padding: 8 15;" text="View Details" />
+                    </VBox>
+                </FlowPane>
+            </children>
+        </AnchorPane>
+    </content>
+</ScrollPane>

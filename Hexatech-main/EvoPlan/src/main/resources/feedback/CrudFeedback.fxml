@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<GridPane xmlns:fx="http://javafx.com/fxml" fx:controller="evoplan.controllers.CrudFeedbackController"
+          alignment="CENTER" hgap="10" vgap="10">
+   <Label text="Gestion des Feedbacks" GridPane.columnIndex="1" GridPane.rowIndex="0"/>
+
+   <Label text="Client ID:" GridPane.columnIndex="0" GridPane.rowIndex="1"/>
+   <TextField fx:id="clientIdField" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+
+   <Label text="Commentaire:" GridPane.columnIndex="0" GridPane.rowIndex="2"/>
+   <TextField fx:id="commentsField" GridPane.columnIndex="1" GridPane.rowIndex="2"/>
+
+   <Label text="Note (1-5):" GridPane.columnIndex="0" GridPane.rowIndex="3"/>
+   <TextField fx:id="ratingField" GridPane.columnIndex="1" GridPane.rowIndex="3"/>
+
+   <Button text="Ajouter" fx:id="addButton" GridPane.columnIndex="0" GridPane.rowIndex="4"/>
+   <Button text="Modifier" fx:id="updateButton" GridPane.columnIndex="1" GridPane.rowIndex="4"/>
+   <Button text="Supprimer" fx:id="deleteButton" GridPane.columnIndex="2" GridPane.rowIndex="4"/>
+
+   <TableView fx:id="feedbackTable" GridPane.columnIndex="0" GridPane.rowIndex="5" GridPane.columnSpan="3">
+      <columns>
+         <TableColumn text="ID" fx:id="idColumn"/>
+         <TableColumn text="Client ID" fx:id="clientIdColumn"/>
+         <TableColumn text="Commentaire" fx:id="commentsColumn"/>
+         <TableColumn text="Note" fx:id="ratingColumn"/>
+      </columns>
+   </TableView>
+</GridPane>
