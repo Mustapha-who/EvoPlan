@@ -20,7 +20,7 @@ public class OpenAIController {
     private OpenAiService openAiService; // Service pour interagir avec l'API OpenAI
 
     // Clé API OpenAI (à remplacer par votre clé)
-    private static final String OPENAI_API_KEY = "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";
+    private static final String OPENAI_API_KEY = "YOUR_OPENAI_API_KEY";
     // Méthode d'initialisation du contrôleur
     @FXML
     public void initialize() {
